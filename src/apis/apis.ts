@@ -1,3 +1,4 @@
+import { User } from "@supabase/supabase-js";
 import { BaseApiClient } from "./base-axios-client";
 
 class ApiClient extends BaseApiClient {
@@ -21,6 +22,9 @@ class ApiClient extends BaseApiClient {
 
   // == 도메인 메서드 (AbortSignal 지원) ==
   // 여기에 계속 추가...
+  public getUser() {
+    return this.get<User>("/api/auth/user");
+  }
 }
 
 const api = new ApiClient();
