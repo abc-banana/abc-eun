@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import QueryProvider from "@/lib/query-provider";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <QueryProvider>
           <NuqsAdapter>{children}</NuqsAdapter>
         </QueryProvider>
+        <ReactQueryDevtools />
       </body>
     </html>
   );
