@@ -7,7 +7,8 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "pnpm biome lint",
-    "format": "biome format --write",
+    "format": "pnpm biome format --write",
+    "genTypes": "supabase gen types typescript --project-id \"ageijospngqmyzptvsoo\" --schema public > src/types/supabase.ts",
     "prepare": "husky"
   },
   "dependencies": {
