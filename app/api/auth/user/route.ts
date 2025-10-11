@@ -29,6 +29,19 @@ export async function GET() {
       );
     }
 
+    if (error.message === "refresh_token_not_found") {
+      await supabase.auth.signOut();
+
+      await supabase.auth.setSession({
+        access_token: "",
+        refresh_token: "",
+      });
+
+      return NextResponse.json(
+        { user: null, error: "Refresh token not found" },
+        { status: 401 },
+      );
+    }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
