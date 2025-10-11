@@ -1,5 +1,5 @@
 // API 응답 구조 정의
-interface ApiResponse<T> {
+export interface ApiResponse<T> {
   data: T;
   access_token?: string;
   message?: string;
@@ -7,14 +7,14 @@ interface ApiResponse<T> {
 }
 
 // 에러 응답 구조 정의
-interface ApiErrorResponse {
+export interface ApiErrorResponse {
   message: string;
   detail?: string;
   code?: string;
 }
 
 // 환경별 설정 인터페이스
-interface ApiConfig {
+export interface ApiConfig {
   apiUrl: string;
   timeout?: number;
   retryAttempts?: number;
@@ -22,7 +22,7 @@ interface ApiConfig {
 }
 
 // 커스텀 에러 클래스
-class ApiError extends Error {
+export class ApiError extends Error {
   constructor(
     public status: number,
     public message: string,
