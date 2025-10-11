@@ -306,6 +306,33 @@ export type Database = {
           },
         ]
       }
+      "nano-banana": {
+        Row: {
+          created_at: string
+          gen_category: string
+          id: string
+          image_url: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          gen_category: string
+          id?: string
+          image_url: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          gen_category?: string
+          id?: string
+          image_url?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       Places: {
         Row: {
           created_at: string
