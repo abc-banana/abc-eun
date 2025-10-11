@@ -1,20 +1,10 @@
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useLogOutMutation } from "./mutations";
 import { useUserQuery } from "./queries";
 
 function useAuth() {
-  const router = useRouter();
   const { data: user, isPending, error } = useUserQuery();
   const { mutate: logOutMutate } = useLogOutMutation();
-
-  const logInStartWithProvider = (
-    provider: string = "kakao",
-    next: string = "/",
-  ): void => {
-    const url = `/api/auth/provider?provider=${provider}&next=${next}`;
-    router.push(url);
-  };
 
   const logOut = (): void => {
     logOutMutate();
@@ -29,11 +19,13 @@ function useAuth() {
     console.log("isPending in useAuth ===========>", isPending);
   }, [isPending]);
 
-  useEffect(() => {
-    console.log("error in useAuth ===========>", error);
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     console.error("error in useAuth ===========>", error);
+  //   }
+  // }, [error]);
 
-  return { user, logInStartWithProvider, logOut };
+  return { user, logOut };
 }
 
 export default useAuth;
