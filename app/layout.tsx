@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { Toaster } from "sonner";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/features/common";
 import QueryProvider from "@/lib/query-provider";
@@ -36,14 +36,14 @@ export default function RootLayout({
           <NuqsAdapter>
             <SidebarProvider>
               <AppSidebar />
-              <main>
+              <main className="flex-1">
                 <SidebarTrigger />
                 {children}
               </main>
             </SidebarProvider>
           </NuqsAdapter>
+          <Toaster richColors position="top-center" />
         </QueryProvider>
-        <ReactQueryDevtools />
       </body>
     </html>
   );
