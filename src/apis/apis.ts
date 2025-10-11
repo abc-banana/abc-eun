@@ -25,6 +25,10 @@ class ApiClient extends BaseApiClient {
   public getUser() {
     return this.get<User>("/api/auth/user");
   }
+
+  public logOut() {
+    return this.get("/api/auth/logout");
+  }
 }
 
 const api = new ApiClient();
