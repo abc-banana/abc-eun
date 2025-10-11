@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
+import { ApiConfig, ApiError, ApiErrorResponse } from "@/types/api-types";
 
 export abstract class BaseApiClient {
   protected readonly apiInstance: AxiosInstance;
@@ -37,6 +38,7 @@ export abstract class BaseApiClient {
 
   // 통합 에러 처리
   private handleApiError(error: AxiosError<ApiErrorResponse>): never {
+    // console.error("error in handleApiError ===========>", error);
     const { status = 500, data } = error.response || {};
     const message = data?.message || error.message;
 
