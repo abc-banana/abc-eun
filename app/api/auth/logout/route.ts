@@ -12,5 +12,5 @@ export async function DELETE() {
   }
 
   // return NextResponse.json({ message: "Logout successful" }, { status: 200 });
-  return redirect("/signin");
+  return redirect("/");
 }
