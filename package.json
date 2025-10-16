@@ -9,7 +9,9 @@
     "lint": "pnpm biome lint",
     "format": "pnpm biome format --write",
     "genTypes": "supabase gen types typescript --project-id \"ageijospngqmyzptvsoo\" --schema public > src/types/supabase.ts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
